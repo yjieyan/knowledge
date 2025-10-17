@@ -1,3 +1,7 @@
+---
+title: Vue2 源码解析
+icon: circle-info
+---
 # Vue2 源码解析
 ### 总览：一个完整的挂载流程
 

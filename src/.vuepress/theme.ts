@@ -8,10 +8,11 @@ export default hopeTheme({
 
   author: {
     name: "yjieyan",
-    url: "https://mister-hope.com",
+    url: "https://yjieyan.github.io/knowledge",
   },
 
-  logo: "https://theme-hope-assets.vuejs.press/logo.svg",
+  logo: "/logo.png",
+  favicon: "/favicon.ico",
 
   repo: "vuepress-theme-hope/vuepress-theme-hope",
 
@@ -19,6 +20,7 @@ export default hopeTheme({
 
   // 导航栏
   navbar,
+  breadcrumb: false,
 
   // 侧边栏
   sidebar,
