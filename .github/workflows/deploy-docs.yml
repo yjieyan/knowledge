@@ -42,7 +42,7 @@ jobs:
           pnpm run docs:build
           > src/.vuepress/dist/.nojekyll
       - name: 删除a标签
-        run:
+        run: |-
           find . -maxdepth 1 -name "*.html" -exec sed -i 's/跳至主要內容//g' {} \;
 
       - name: 部署文档
