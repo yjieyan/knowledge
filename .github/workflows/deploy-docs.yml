@@ -45,48 +45,40 @@ jobs:
         run: |-
           find . -name "*.html" -exec sed -i 's/跳至主要內容//g' {} \;
 
-      - name: 使用 Node.js 精确删除
+      
+      - name: 使用 Bash 删除文字
         run: |
-          echo "🎯 使用 Node.js 处理..."
+          echo "🔧 使用 Bash 处理..."
           
-          cat > remove-text.js << 'EOF'
-          const fs = require('fs');
-          const path = require('path');
+          # 1. 查找并显示文件
+          echo "根目录HTML文件:"
+          find . -maxdepth 1 -name "*.html" -type f
           
-          function processHtmlFiles() {
-            const files = fs.readdirSync('.');
-            const htmlFiles = files.filter(file => 
-              file.endsWith('.html') && fs.statSync(file).isFile()
-            );
-            
-            console.log('找到HTML文件:', htmlFiles);
-            
-            htmlFiles.forEach(file => {
-              console.log(`处理文件: ${file}`);
-              let content = fs.readFileSync(file, 'utf8');
-              
-              // 记录删除前的状态
-              const before = (content.match(/跳至主要內容/g) || []).length;
-              console.log(`删除前 '跳至主要內容' 出现次数: ${before}`);
-              
-              // 删除所有"跳至主要內容"文字
-              content = content.replace(/跳至主要內容/g, '');
-              
-              // 记录删除后的状态
-              const after = (content.match(/跳至主要內容/g) || []).length;
-              console.log(`删除后 '跳至主要內容' 出现次数: ${after}`);
-              
-              // 保存文件
-              fs.writeFileSync(file, content, 'utf8');
-              console.log(`✅ ${file} 处理完成`);
-            });
-          }
+          # 2. 检查文件内容
+          echo "文件内容检查:"
+          find . -maxdepth 1 -name "*.html" -type f -exec sh -c '
+            echo "=== $1 ==="
+            if grep -q "跳至主要內容" "$1"; then
+              echo "✅ 找到'跳至主要內容'文字"
+              grep -o "跳至主要內容" "$1" | wc -l | xargs echo "出现次数:"
+            else
+              echo "❌ 未找到'跳至主要內容'文字"
+            fi
+          ' _ {} \;
           
-          processHtmlFiles();
-          EOF
+          # 3. 执行删除
+          echo "执行删除..."
+          find . -maxdepth 1 -name "*.html" -type f -exec sed -i 's/跳至主要內容//g' {} \;
           
-          node remove-text.js
-          rm remove-text.js
+          # 4. 验证结果
+          echo "验证删除结果:"
+          find . -maxdepth 1 -name "*.html" -type f -exec sh -c '
+            if grep -q "跳至主要內容" "$1"; then
+              echo "❌ $1 仍有'跳至主要內容'文字"
+            else
+              echo "✅ $1 已清理完成"
+            fi
+          ' _ {} \;
 
       - name: 部署文档
         uses: JamesIves/github-pages-deploy-action@v4
