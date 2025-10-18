@@ -40,8 +40,10 @@ jobs:
           NODE_OPTIONS: --max_old_space_size=8192
         run: |-
           pnpm run docs:build
-          find . -name "index.html" -exec sed -i 's/<a [^>]*class="vp-skip-link"[^>]*>.*?<\/a>//g' {} \;
           > src/.vuepress/dist/.nojekyll
+      - name: 删除a标签
+        run:
+          find -name "*.html" -exec sed -i '/<a [^>]*class="[^"]*vp-skip-link[^"]*"[^>]*>.*<\/a>/d' {} \;
 
       - name: 部署文档
         uses: JamesIves/github-pages-deploy-action@v4
