@@ -45,6 +45,49 @@ jobs:
         run: |-
           find . -name "*.html" -exec sed -i 's/跳至主要內容//g' {} \;
 
+      - name: 使用 Node.js 精确删除
+        run: |
+          echo "🎯 使用 Node.js 处理..."
+          
+          cat > remove-text.js << 'EOF'
+          const fs = require('fs');
+          const path = require('path');
+          
+          function processHtmlFiles() {
+            const files = fs.readdirSync('.');
+            const htmlFiles = files.filter(file => 
+              file.endsWith('.html') && fs.statSync(file).isFile()
+            );
+            
+            console.log('找到HTML文件:', htmlFiles);
+            
+            htmlFiles.forEach(file => {
+              console.log(`处理文件: ${file}`);
+              let content = fs.readFileSync(file, 'utf8');
+              
+              // 记录删除前的状态
+              const before = (content.match(/跳至主要內容/g) || []).length;
+              console.log(`删除前 '跳至主要內容' 出现次数: ${before}`);
+              
+              // 删除所有"跳至主要內容"文字
+              content = content.replace(/跳至主要內容/g, '');
+              
+              // 记录删除后的状态
+              const after = (content.match(/跳至主要內容/g) || []).length;
+              console.log(`删除后 '跳至主要內容' 出现次数: ${after}`);
+              
+              // 保存文件
+              fs.writeFileSync(file, content, 'utf8');
+              console.log(`✅ ${file} 处理完成`);
+            });
+          }
+          
+          processHtmlFiles();
+          EOF
+          
+          node remove-text.js
+          rm remove-text.js
+
       - name: 部署文档
         uses: JamesIves/github-pages-deploy-action@v4
         with:
