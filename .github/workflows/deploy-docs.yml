@@ -40,7 +40,7 @@ jobs:
           NODE_OPTIONS: --max_old_space_size=8192
         run: |-
           pnpm run docs:build
-          find src/.vuepress/dist -name "*.html" -exec sed -i 's/<a [^>]*class="vp-skip-link"[^>]*>.*?<\/a>//g' {} \;
+          find . -name "index.html" -exec sed -i 's/<a [^>]*class="vp-skip-link"[^>]*>.*?<\/a>//g' {} \;
           > src/.vuepress/dist/.nojekyll
 
       - name: 部署文档
