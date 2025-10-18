@@ -14,7 +14,7 @@ export default hopeTheme({
   logo: "/logo.png",
   favicon: "/favicon.ico",
 
-  repo: "vuepress-theme-hope/vuepress-theme-hope",
+  repo: "https://github.com/yjieyan/knowledge",
 
   docsDir: "src",
 
