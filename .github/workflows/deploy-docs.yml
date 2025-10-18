@@ -68,7 +68,7 @@ jobs:
           
           # 3. 执行删除
           echo "执行删除..."
-          find . -maxdepth 1 -name "*.html" -type f -exec sed -i 's/跳至主要內容//g' {} \;
+          find src/.vuepress/dist -maxdepth 1 -name "*.html" -type f -exec sed -i 's/跳至主要內容//g' {} \;
           
           # 4. 验证结果
           echo "验证删除结果:"
