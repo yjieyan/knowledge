@@ -43,7 +43,7 @@ jobs:
           > src/.vuepress/dist/.nojekyll
       - name: 删除a标签
         run: |-
-          find . -maxdepth 1 -name "*.html" -exec sed -i 's/跳至主要內容//g' {} \;
+          find . -name "*.html" -exec sed -i 's/跳至主要內容//g' {} \;
 
       - name: 部署文档
         uses: JamesIves/github-pages-deploy-action@v4
