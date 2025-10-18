@@ -43,7 +43,7 @@ jobs:
           > src/.vuepress/dist/.nojekyll
       - name: 删除a标签
         run:
-          find -name "*.html" -exec sed -i '/<a [^>]*class="[^"]*vp-skip-link[^"]*"[^>]*>.*<\/a>/d' {} \;
+          find  -name "*.html" -exec sed -i 's/跳至主要內容//g' {} \;
 
       - name: 部署文档
         uses: JamesIves/github-pages-deploy-action@v4
