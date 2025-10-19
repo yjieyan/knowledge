@@ -41,6 +41,44 @@ jobs:
         run: |-
           pnpm run docs:build
           > src/.vuepress/dist/.nojekyll
+      - name: 删除a标签
+        run: |-
+          find . -name "*.html" -exec sed -i 's/跳至主要內容//g' {} \;
+
+      
+      - name: 使用 Bash 删除文字
+        run: |
+          echo "🔧 使用 Bash 处理..."
+          
+          # 1. 查找并显示文件
+          echo "根目录HTML文件:"
+          find . -maxdepth 1 -name "*.html" -type f
+          
+          # 2. 检查文件内容
+          echo "文件内容检查:"
+          find . -maxdepth 1 -name "*.html" -type f -exec sh -c '
+            echo "=== $1 ==="
+            if grep -q "跳至主要內容" "$1"; then
+              echo "✅ 找到'跳至主要內容'文字"
+              grep -o "跳至主要內容" "$1" | wc -l | xargs echo "出现次数:"
+            else
+              echo "❌ 未找到'跳至主要內容'文字"
+            fi
+          ' _ {} \;
+          
+          # 3. 执行删除
+          echo "执行删除..."
+          find src/.vuepress/dist -maxdepth 1 -name "*.html" -type f -exec sed -i 's/跳至主要內容//g' {} \;
+          
+          # 4. 验证结果
+          echo "验证删除结果:"
+          find . -maxdepth 1 -name "*.html" -type f -exec sh -c '
+            if grep -q "跳至主要內容" "$1"; then
+              echo "❌ $1 仍有'跳至主要內容'文字"
+            else
+              echo "✅ $1 已清理完成"
+            fi
+          ' _ {} \;
 
       - name: 部署文档
         uses: JamesIves/github-pages-deploy-action@v4
