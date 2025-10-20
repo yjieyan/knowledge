@@ -30,7 +30,12 @@ export default navbar([
   //   // icon: "lightbulb",
   //   prefix: "/guide/computer/",
   //   // children: ["README.md", ],
-  //   children: ["网络/index.html", "操作系统/index.html", "数据结构与算法/index.html",],
+  //   children: [
+  //     {
+  //       text: "通信",
+  //       children: ['前端JWT.html','HttpOnly-Cookie.html']
+  //     },
+  //   ],
   // },
   {
     text: "浏览器&服务器",
@@ -41,6 +46,7 @@ export default navbar([
         text: "浏览器",
         children: [
           '浏览器/用户从输入网址到网页显示发生了什么.html',
+          '/guide/computer/前端JWT.html','/guide/computer/HttpOnly-Cookie.html'
 
         ]
       },
