@@ -21,7 +21,9 @@ features:
   - title: 性能优化
     details: 前端性能优化、监控等项目优化
     icon: ⚙️
-footer: MIT Licensed | Copyright © 2023-present 全栈之路
+
+copyright: false
+footer: 使用 <a href="https://theme-hope.vuejs.press/zh/" target="_blank">VuePress Theme Hope</a> 主题 | MIT 协议
 ---
 
 ## 🎯 技术栈与技能
