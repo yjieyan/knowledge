@@ -1,78 +1,149 @@
 ---
-home: true
-icon: house
 title: 首页
-heroImage: https://theme-hope-assets.vuejs.press/
-bgImage: https://cdn.pixabay.com/photo/2019/05/19/23/47/clouds-4215608_1280.jpg
-# bgImage: https://theme-hope-assets.vuejs.press/bg/6-light.svg
-# bgImageDark: https://theme-hope-assets.vuejs.press/bg/6-dark.svg
-bgImageStyle:
-  background-attachment: fixed
+home: true
+heroImage: /logo.png
 heroText: 技术探索与成长之路
-tagline: 一名热爱技术的前端开发者，专注于创造更好的用户体验和更优雅的代码实现。
+tagline: 从前端到后端，探索全栈开发的无限可能
 actions:
-
-  # - text: 使用指南
-  #   icon: lightbulb
-  #   link: ./demo/
-  #   type: primary
-
-  # - text: 文档
-  #   link: ./guide/
-
-highlights:
-  - header: 关于这个博客
-    headerColor: '#fff'
-    # image: /assets/image/box.svg
-    bgImage: https://cdn.pixabay.com/photo/2019/05/19/23/47/clouds-4215608_1280.jpg
-    # bgImageDark: https://theme-hope-assets.vuejs.press/bg/3-dark.svg
-    # highlights:
-    #   - title: 运行 <code>pnpm create vuepress-theme-hope hope-project</code> 以创建一个新的主题项目。
-    #   - title: 在已有项目根目录下运行 <code>pnpm create vuepress-theme-hope add .</code> 以在项目中添加主题。
-    
-    features:
-      - title: 🚀 开始阅读
-        link: /guide/浏览器&服务器/浏览器/用户从输入网址到网页显示发生了什么.html
-      - title: 💡 深度原理
-        details: Vue、React 源码解析和实现原理深入探讨
-        link: /guide/source-code/Vue2源码解析.html
-      # - title: React 源码解析
-      #   details: React 源码解析和实现原理深入探讨
-      #   link: /guide/source-code/React源码解析.html
-      - title: 🛠 项目设计
-        details: 企业级项目实战经验，性能优化和工程化最佳实践
-        link: /guide/engineering/项目设计/单点登录.html
-  
-  # - header: 关于我
-  #   description: 一名热爱技术的前端开发者，专注于创造更好的用户体验和更优雅的代码实现。
-  #   bgImage: https://cdn.pixabay.com/photo/2019/05/19/23/47/clouds-4215608_1280.jpg
-    
-    # features:
-      
-      # heroText: 技术探索与成长之路
-      # tagline: 深入原理，专注实战 • 分享前端开发经验与思考
-      # - title: 我的信息
-      #   details: 严洁燕 - 18782451247
-      # - title: 所在城市
-      #   details: 成都 
-      # - title: 邮箱
-      #   details: 2192242196@qq.com
-
-  - header: 
-    # description: 我们扩展了标准的 CommonMark 规范，为你添加了成吨功能。
-    # image: /assets/image/markdown.svg
-    bgImage: https://cdn.pixabay.com/photo/2019/05/19/23/47/clouds-4215608_1280.jpg
-    # bgImageDark: https://theme-hope-assets.vuejs.press/bg/2-dark.svg
-    bgImageStyle:
-      background-attachment: fixed
-      # background-repeat: repeat
-      # background-size: initial
-    features:
-      - title: 我的简历
-        icon: clipboard-check
-        details: 查看我的简历
-        link: https://pan.quark.cn/s/923b2723628f
-
-copyright: false
-footer: 使用 <a href="https://theme-hope.vuejs.press/zh/" target="_blank">VuePress Theme Hope</a> 主题 | MIT 协议
+  - text: 开始阅读
+    link: /guide/浏览器&服务器/浏览器/用户从输入网址到网页显示发生了什么.md
+    type: primary
+  - text: 我的简历
+    link: https://pan.quark.cn/s/923b2723628f
+    type: secondary
+features:
+  - title: 原理深入
+    details: Webpack、Babel.js等构建工具原理深入
+    icon: 💻
+  - title: 项目实战
+    details: Js、Vue、React、现代CSS、构建工具等前端技术深度实践
+    icon: 🚀
+  - title: 性能优化
+    details: 前端性能优化、监控等项目优化
+    icon: ⚙️
+footer: MIT Licensed | Copyright © 2023-present 全栈之路
 ---
+
+## 🎯 技术栈与技能
+
+<div class="skills-grid">
+
+<div class="skill-category">
+
+### 前端技术栈
+- **框架**: Vue 、React 
+- **语言**: TypeScript、JavaScript ES6+
+- **样式**: CSS3、Sass、Tailwind CSS
+- **工具**: Webpack、Vite、ESLint
+- **状态管理**: Vuex、Pinia、Redux Toolkit
+
+</div>
+
+<div class="skill-category">
+
+### 后端技术栈
+- **运行时**: Node.js
+- **框架**: Express
+- **数据库**: MySQL、MongoDB
+- **API**: Axios 、 RESTful
+- **认证**: JWT、OAuth 2.0
+
+</div>
+
+<div class="skill-category">
+
+<!-- ### 运维与部署
+<!-- - **容器化**: Docker、Docker Compose -->
+<!-- - **云服务**: AWS、阿里云 -->
+<!-- - **CI/CD**: GitHub Actions
+- **监控**: Prometheus、Grafana
+- **服务器**: Nginx --> 
+
+</div>
+
+</div>
+
+## 📚 最新文章
+
+<div class="blog-grid">
+
+<div class="blog-card">
+
+### Vue 3 组合式API最佳实践
+> 深入探讨Vue 3组合式API的使用技巧，如何组织代码结构，以及常见陷阱的避免方法。
+
+**标签**: `Vue3` `组合式API` `性能优化`
+
+[阅读全文 →](/guide/source-code/Vue3组合式API最佳实践.md)
+
+</div>
+
+<div class="blog-card">
+
+<!-- ### Node.js 高并发架构设计
+> **2023-10-15** · 📖 阅读 1.2k
+
+探讨Node.js在高并发场景下的架构设计，包括集群模式、负载均衡和性能优化策略。
+
+**标签**: `Node.js` `高并发` `架构设计`
+
+[阅读全文 →](/blog/nodejs-high-concurrency/) -->
+
+</div>
+
+<div class="blog-card">
+
+<!-- ### Docker微服务部署实践
+> **2023-10-10** · 📖 阅读 980
+
+分享使用Docker容器化微服务应用的经验，包括镜像构建、编排和持续集成流程。
+
+**标签**: `Docker` `微服务` `CI/CD`
+
+[阅读全文 →](/blog/docker-microservices/) -->
+
+</div>
+
+</div>
+
+## 💼 系统设计
+
+<div class="projects-grid">
+
+<div class="project-card">
+
+### [实现一个简易MD编辑器，支持实时预览并展示渲染效果](./guide/项目实战/实现一个MD编辑器.md)
+### [设计一个具备用户角色管理功能的前端应用，支持不同角色的权限控制](./guide/项目实战/设计一个具备用户角色管理功能的前端应用.md)
+<!-- 基于Vue.js + Node.js + MySQL开发的完整电商平台，包含用户系统、商品管理、订单处理和支付集成。
+
+**技术栈**: `Vue.js` `Node.js` `MySQL` `Redis`
+
+- [在线演示](https://demo.example.com) -->
+
+</div>
+
+<!-- <div class="project-card">
+
+### 团队协作工具
+类似Trello的团队任务管理工具，支持实时协作、文件分享和项目进度跟踪。
+
+**技术栈**: `React` `Socket.io` `MongoDB` `Express`
+
+- [在线演示](https://collab.example.com)
+- [源码](https://github.com/username/collab-tool)
+
+</div> -->
+<!-- 
+<div class="project-card">
+
+### 数据可视化平台
+基于D3.js和ECharts的数据可视化平台，支持多种图表类型和数据源接入。
+
+**技术栈**: `Vue.js` `D3.js` `Python` `Flask`
+
+- [在线演示](https://viz.example.com)
+- [源码](https://github.com/username/data-viz)
+
+</div> -->
+
+</div>
