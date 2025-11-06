@@ -351,31 +351,32 @@
     中 input 中的内容， 这样用户名，密码就轻松到手了。
 
 20. offsetWidth/offsetHeight,clientWidth/clientHeight与scrollWidth/scrollHeight的区别
-
-    offsetWidth/offsetHeight 返回值包含content + padding + border，效果与
-    e.getBoundingClientRect()相同
-    clientWidth/clientHeight 返回值只包含content + padding， 如果有滚动条，也不包含滚动条
-    scrollWidth/scrollHeight 返回值包含content + padding + 溢出内容的尺寸
-
+    ```js
+        //offsetWidth/offsetHeight 返回值包含content + padding + border，效果与e.getBoundingClientRect()相同
+        //clientWidth/clientHeight 返回值只包含content + padding， 如果有滚动条，也不包含滚动条
+        //scrollWidth/scrollHeight 返回值包含content + padding + 溢出内容的尺寸
+    ```
 21. javascript有哪些方法定义对象
-
-    对象字面量： var obj = {};
-
-    构造函数： var obj = new Object();
-    Object.create(): var obj = Object.create(Object.prototype);
-
+    ```js
+    /**
+     * 
+        对象字面量： var obj = {};
+        构造函数： var obj = new Object();
+        Object.create(): var obj = Object.create(Object.prototype);
+    */
+    ```
 22. 常见兼容性问题？
     png24 位的图片在iE6浏览器上出现背景，解决方案是做成 PNG8
 
-    浏览器默认的 margin 和 padding 不同 。解决方案是加⼀个全局的 *
+    浏览器默认的 margin 和 padding 不同 。解决方案是加⼀个全局的
 
     {margin:0;padding:0;} 来统⼀ ,，但是全局效率很低，⼀ 般是如下这样解决：
-
-    body,ul,li,ol,dl,dt,dd,form,input,h1,h2,h3,h4,h5,h6,p{
-    margin:0;
-    padding:0;
-    }
-
+    ```css
+        body,ul,li,ol,dl,dt,dd,form,input,h1,h2,h3,h4,h5,h6,p{
+        margin:0;
+        padding:0;
+        }
+    ```
     IE 下, event 对象有 x , y 属性,但是没有 pageX , pageY 属性
     Firefox 下, event 对象有 pageX , pageY 属性,但是没有 x,y 属性.
 
@@ -532,8 +533,9 @@
     当然还可以用 JSON ；但写法有很多种，也能混合使用
 
     对象字面量的方式
-
+    ```js
     person= { firstname: " Mark" , lastname: " Yun" , age: 2 5 , eyecolor: " black" } ;
+    ```
 
     用 function 来模拟无参的构造函数
     ```js
@@ -561,7 +563,7 @@
     }
 
     }
-    var maidou =new Pet("麦兜",25,"coding");//实例化 、创建对象
+    var maidou = new Pet("麦兜",25,"coding");//实例化 、创建对象
     maidou.eat();//调用eat方法
     ```
     用工厂方式来创建 ( 内置对象)
@@ -624,7 +626,7 @@
 
     例如作为函数的参数，表示该函数的参数不是对象；
 
-    在验证 null 时，⼀ 定要使用 === ， 因为 == 无法分别 null 和 undefined
+    在验证 null 时，⼀定要使用 === ， 因为 == 无法分别 null 和 undefined
 
 37. ["1", "2", "3"].map(parseInt) 答案是多少
 
