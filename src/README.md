@@ -76,7 +76,14 @@ footer: 使用 <a href="https://theme-hope.vuejs.press/zh/" target="_blank">VueP
 
 **标签**: `Vue3` `组合式API` `性能优化`
 
-[阅读全文 →](/guide/source-code/Vue3组合式API最佳实践.md)
+[阅读全文 →](/src/guide/source-code/Vue3组合式API最佳实践.md)
+
+### Vite 原理分析
+> 深入探讨Vite的工作原理，包括其基于ESM的开发服务器、插件系统和HMR机制。
+
+**标签**: `Vite` `ESM` `开发服务器` `HMR`
+
+[阅读全文 →](/src/guide/source-code/Vite原理.md)
 
 </div>
 

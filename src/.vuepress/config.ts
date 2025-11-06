@@ -6,7 +6,7 @@ export default defineUserConfig({
   base: "/knowledge/",
 
   lang: "zh-CN",
-  title: "学习与分享",
+  title: "开卷有益",
   description: "yjieyan的知识积累与分享",
 
   theme,

@@ -2,43 +2,9 @@ import { navbar } from "vuepress-theme-hope";
 
 export default navbar([
   "/",
-  //"/portfolio",
-  //"/demo/",
-  
-  // {
-  //   text: "计算机基础",
-  //   // icon: "lightbulb",
-  //   prefix: "/guide/computer/",
-  //   // children: ["README.md", ],
-  //   children: [
-  //     {
-  //       text: "网络",
-  //       children: ['网络/从地址栏回车到页面渲染.html']
-  //     },
-  //     // {
-  //     //   text: "操作系统",
-  //     //   children: ['网络/从地址栏回车到页面渲染.html']
-  //     // },
-  //     // {
-  //     //   text: "数据结构与算法",
-  //     //   children: ['网络/从地址栏回车到页面渲染.html']
-  //     // },
-  //   ],
-  // },
-  // {
-  //   text: "计算机基础",
-  //   // icon: "lightbulb",
-  //   prefix: "/guide/computer/",
-  //   // children: ["README.md", ],
-  //   children: [
-  //     {
-  //       text: "通信",
-  //       children: ['前端JWT.html','HttpOnly-Cookie.html']
-  //     },
-  //   ],
-  // },
+
   {
-    text: "浏览器&服务器",
+    text: "基础-进阶",
     // icon: "lightbulb",
     prefix: "/guide/浏览器&服务器/",
     children: [
@@ -46,8 +12,27 @@ export default navbar([
         text: "浏览器",
         children: [
           '浏览器/用户从输入网址到网页显示发生了什么.html',
-          '/guide/computer/前端JWT.html','/guide/computer/HttpOnly-Cookie.html'
+          '/guide/computer/前端JWT.html',
+          '/guide/computer/Xss和Csrf.html',
 
+
+        ]
+      },
+      {
+        text: "Js",
+        prefix: "/guide/language/",
+        children: [
+          'Js/Js引擎如何执行js.html',
+          'Js/原型与原型链.html','Js/Promise异步.html','Js/事件循环.html','Js/作用域与闭包.html',
+          'Js/柯里化函数.html','Js/深拷贝与浅拷贝.html','Js/bind&call&apply.html'
+
+        ]
+      },
+         {
+        text: "Ts",
+        children: [
+          // 'Ts/Ts基础.html',
+          'Ts/Ts接口vs类型别名.html',
         ]
       },
       {
@@ -57,15 +42,11 @@ export default navbar([
           '服务器/package.json版本号规则.html',
           '服务器/npm模块安装机制.html',
           '服务器/V8的垃圾回收机制.html',
-
-
-
         ]
       },
     ]
     // children: ["浏览器/index.html","服务器/index.html",],
   },
-  // "/guide/source-code/",
   {
     text: "源码分析",
     prefix: "/guide/source-code/",
@@ -91,7 +72,14 @@ export default navbar([
         text: "Webpack",
         children: [
           'Webpack基础.html','Webpack构建流程.html','Webpack插件&加载器机制',
-          'Webpack的tapable.html','Webpack的TreeShaking.html','Webpack和Rollup如何选择.html'
+          'Webpack的tapable.html','Webpack的TreeShaking.html','Webpack和Rollup如何选择.html',
+          'Webpack5新特性.html'
+        ]
+      },
+      {
+        text: "Vite",
+        children: [
+          'Vite原理.html',
         ]
       },
       {
@@ -148,47 +136,55 @@ export default navbar([
     ],
     // children: ["微前端与模块联邦/index.html","模块化与打包/index.html","测试与质量/index.html","CI&CD/index.html","脚手架与Monorepo/index.html","性能监控与日志/index.html","项目实战/index.html",],
   },
+
+  // {
+  //   text: "跨端与移动端",
+  //   prefix: "/guide/跨端与移动端/",
+  //   children: [
+  //     {
+  //       text: "Flutter",
+  //       children: [
+  //         {
+  //           text: "Flutter语言",
+  //           link: "跨端/Flutter/Flutter.html"
+  //         }
+  //       ]
+  //     },
+      
+  //     {
+  //       text: "Uniapp",
+  //       children: [
+  //         // {
+  //         //   text: "Taro原理",
+  //         //   link: "跨端/Taro原理.html"
+  //         // }
+  //       ]
+  //     },
+      
+  //     // {
+  //     //   text: "Taro",
+  //     //   children: [
+  //     //     {
+  //     //       text: "Taro原理",
+  //     //       link: "跨端/Taro原理.html"
+  //     //     }
+  //     //   ]
+  //     // },
+  //     {
+  //       text: "移动端",
+  //       children: ['移动端/开发小程序的几种方式.html', '']
+  //     },
+  //   ],
+  // },
   {
-    text: "语言与标准",
-    prefix: "/guide/language/",
+    text: "面试经",
+    // icon: "lightbulb",
+    prefix: "/guide/面试/",
     children: [
-      {
-        text: "Js",
-        children: [
-          'Js/Js引擎如何执行js.html',
-          'Js/原型与原型链.html','Js/Promise异步.html','Js/事件循环.html','Js/作用域与闭包.html',
-          'Js/柯里化函数.html','Js/深拷贝与浅拷贝.html','Js/bind&call&apply.html'
-        ]
-      },
-      {
-        text: "Ts",
-        children: [
-          'Ts/Ts基础.html','Ts/Ts接口vs类型别名.html',
-        ]
-      },
-      // {
-      //   text: "CSS&预处理器",
-      //   children: []
-      // },
-      // {
-      //   text: "设计模式",
-      //   children: []
-      // },
-    ],
-  },
-  {
-    text: "跨端与移动端",
-    prefix: "/guide/跨端与移动端/",
-    children: [
-      {
-        text: "跨端",
-        children: ['跨端/Taro原理.html']
-      },
-      {
-        text: "移动端",
-        children: ['移动端/开发小程序的几种方式.html', '']
-      },
-    ],
+      "基础面试题/Html综合问题.html", 
+      "核心面试题/README.md",
+      "综合面试题/README.md", 
+      "2025面试题/面试之UniApp.html"],
   },
   {
     text: "全栈与未来",
