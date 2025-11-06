@@ -9,7 +9,7 @@ actions:
     link: /guide/浏览器&服务器/浏览器/用户从输入网址到网页显示发生了什么.md
     type: primary
   - text: 我的简历
-    link: https://pan.quark.cn/s/4287d330193f
+    link: https://pan.quark.cn/s/2cdb9fd211c6
     type: secondary
 features:
   - title: 原理深入
