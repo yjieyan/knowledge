@@ -350,7 +350,7 @@
     当你使用真实的用户名，密码登录时，他的页面就可以通过 Javascript 读取到你的表单
     中 input 中的内容， 这样用户名，密码就轻松到手了。
 
-20. offsetWidth/offsetHeight,clientWidth/clientHeight与scrollWidth/scrollHeight的区别
+20. `offsetWidth/offsetHeight,clientWidth/clientHeight与scrollWidth/scrollHeight`的区别
     ```js
         //offsetWidth/offsetHeight 返回值包含content + padding + border，效果与e.getBoundingClientRect()相同
         //clientWidth/clientHeight 返回值只包含content + padding， 如果有滚动条，也不包含滚动条
