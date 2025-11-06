@@ -99,7 +99,7 @@
     旋转 transform
 
     CSS3新增伪类有那些？
-    ```css
+    ```text
         p:first-of-type 选择属于其父元素的首个 <p> 元素的每个 <p> 元素。
         p:last-of-type 选择属于其父元素的最后 <p> 元素的每个 <p> 元素。
         p:only-of-type 选择属于其父元素唯⼀的 <p> 元素的每个 <p> 元素。
@@ -425,14 +425,10 @@ bottom: 0;
 
 如何垂直居中⼀个 `<img>` ? (用更简便的方法。)
 ```css
-
-#container /**<img>的容器设置如下**/
-{
-
-display:table-cell;
-text-align:center;
-vertical-align:middle;
-
+#container /**<img>的容器设置如下**/{
+    display:table-cell;
+    text-align:center;
+    vertical-align:middle;
 }
 
 ```
@@ -557,20 +553,19 @@ animation-fill-mode 定义动画播放之后的状态 、 animation-play-state �
 左侧固定宽度，右侧自适应宽度的两列布局实现
 
 html结构
-
-< div class=" outer">
-
-<div class="left">固定宽度</div>
-<div class="right">自适应宽度</div>
-
+```html
+<div class="outer">
+    <div class="left">固定宽度</div>
+    <div class="right">自适应宽度</div>
 </div>
+```
 
 在外层 div ( 类名为 outer ) 的 div 中，有两个⼦ div ， 类名分别为
 left 和 right ， 其中 left 为固定宽度， 而 right 为自适应宽度
 
 方法1：左侧div设置成浮动：float: left，右侧div宽度会自拉升适应
 
-```
+```css
 
 .outer {
 width: 100%;
@@ -599,7 +594,7 @@ background-color: blue;
 width 设置为 auto 的时候 ( 或者不设置， 默认为 auto )， 绝对定位元
 
 素会根据其 left 和 right 自动伸缩其大小
-```
+```css
 .outer {
 
 width: 100%;

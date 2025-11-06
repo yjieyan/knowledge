@@ -1558,461 +1558,443 @@ return new Promise((resolve) => setTimeout(resolve, time));
     ```
 80. 项目做过哪些性能优化？
 
-减少 HTTP 请求数
-减少 DNS 查询
-使用 CDN
+    减少 HTTP 请求数
+    减少 DNS 查询
+    使用 CDN
 
-避免重定向
-图片懒加载
-减少 DOM 元素数量
-减少 DOM 操作
+    避免重定向
+    图片懒加载
+    减少 DOM 元素数量
+    减少 DOM 操作
 
 
-使用外部 JavaScript 和 CSS
+    使用外部 JavaScript 和 CSS
 
-压缩 JavaScript 、 CSS 、字体 、图片等
-优化 CSS Sprite
+    压缩 JavaScript 、 CSS 、字体 、图片等
+    优化 CSS Sprite
 
-使用 iconfont
+    使用 iconfont
 
-字体裁剪
+    字体裁剪
 
-多域名分发划分内容到不同域名
-尽量减少 iframe 使用
-避免图片 src 为空
-把样式表放在 link 中
-把 JavaScript 放在页面底部
+    多域名分发划分内容到不同域名
+    尽量减少 iframe 使用
+    避免图片 src 为空
+    把样式表放在 link 中
+    把 JavaScript 放在页面底部
 
 81. 浏览器缓存
 
-浏览器缓存分为强缓存和协商缓存 。当客户端请求某个资源时， 获取缓存的流
-程如下
+    浏览器缓存分为强缓存和协商缓存 。当客户端请求某个资源时， 获取缓存的流
+    程如下
 
-先根据这个资源的⼀些 http header 判断它是否命中强缓存， 如果命中，则直接从本地
-获取缓存资源，不会发请求到服务器；
-当强缓存没有命中时，客户端会发送请求到服务器， 服务器通过另⼀些 request header
+    先根据这个资源的⼀些 http header 判断它是否命中强缓存， 如果命中，则直接从本地
+    获取缓存资源，不会发请求到服务器；
+    当强缓存没有命中时，客户端会发送请求到服务器， 服务器通过另⼀些 request header
 
-验证这个资源是否命中协商缓存，称为 http 再验证， 如果命中， 服务器将请求返回，但
-不返回资源， 而是告诉客户端直接从缓存中获取，客户端收到返回后就会从缓存中获取资
-源；
-强缓存和协商缓存共同之处在于， 如果命中缓存， 服务器都不会返回资源； 区别是， 强缓
-存不对发送请求到服务器，但协商缓存会。
-当协商缓存也没命中时， 服务器就会将资源发送回客户端。
+    验证这个资源是否命中协商缓存，称为 http 再验证， 如果命中， 服务器将请求返回，但
+    不返回资源， 而是告诉客户端直接从缓存中获取，客户端收到返回后就会从缓存中获取资
+    源；
+    强缓存和协商缓存共同之处在于， 如果命中缓存， 服务器都不会返回资源； 区别是， 强缓
+    存不对发送请求到服务器，但协商缓存会。
+    当协商缓存也没命中时， 服务器就会将资源发送回客户端。
 
-当 ctrl+f5 强制刷新网页时， 直接从服务器加载，跳过强缓存和协商缓存；
-当 f5 刷新网页时，跳过强缓存，但是会检查协商缓存；
+    当 ctrl+f5 强制刷新网页时， 直接从服务器加载，跳过强缓存和协商缓存；
+    当 f5 刷新网页时，跳过强缓存，但是会检查协商缓存；
 
-强缓存
+    强缓存
 
-Expires ( 该字段是 http1.0 时的规范，值为⼀个绝对时间的 GMT 格式的时间字符
-串，代表缓存资源的过期时间)
+    Expires ( 该字段是 http1.0 时的规范，值为⼀个绝对时间的 GMT 格式的时间字符
+    串，代表缓存资源的过期时间)
 
-Cache-Control:max-age ( 该字段是 http1.1 的规范， 强缓存利用其 max-age 值来
-判断缓存资源的最大生命周期， 它的值单位为秒)
+    Cache-Control:max-age ( 该字段是 http1.1 的规范， 强缓存利用其 max-age 值来
+    判断缓存资源的最大生命周期， 它的值单位为秒)
 
-协商缓存
+    协商缓存
 
-Last-Modified ( 值为资源最后更新时间， 随服务器response返回)
+    Last-Modified ( 值为资源最后更新时间， 随服务器response返回)
 
 
-If-Modified-Since ( 通过比较两个时间来判断资源在两次请求期间是否有过修改， 如
-果没有修改，则命中协商缓存)
-ETag (表示资源内容的唯⼀标识， 随服务器 response 返回)
-If-None-Match ( 服务器通过比较请求头部的 If-None-Match 与当前资源的 ETag 是
+    If-Modified-Since ( 通过比较两个时间来判断资源在两次请求期间是否有过修改， 如
+    果没有修改，则命中协商缓存)
+    ETag (表示资源内容的唯⼀标识， 随服务器 response 返回)
+    If-None-Match ( 服务器通过比较请求头部的 If-None-Match 与当前资源的 ETag 是
 
-否⼀致来判断资源是否在两次请求之间有过修改， 如果没有修改，则命中协商缓存)
+    否⼀致来判断资源是否在两次请求之间有过修改， 如果没有修改，则命中协商缓存)
 
 82. WebSocket
 
-由于 http 存在⼀个明显的弊端 ( 消息只能有客户端推送到服务器端， 而服
-务器端不能主动推送到客户端)， 导致如果服务器如果有连续的变化， 这时只
-能使用轮询， 而轮询效率过低， 并不适合 。于是 WebSocket 被发明出来
+    由于 http 存在⼀个明显的弊端 ( 消息只能有客户端推送到服务器端， 而服
+    务器端不能主动推送到客户端)， 导致如果服务器如果有连续的变化， 这时只
+    能使用轮询， 而轮询效率过低， 并不适合 。于是 WebSocket 被发明出来
 
-相比与 http 具有以下有点
+    相比与 http 具有以下有点
 
-⽀持双向通信， 实时性更强；
-可以发送⽂本，也可以⼆进制⽂件；
-协议标识符是 ws ，加密后是 wss ；
-较少的控制开销 。连接创建后， ws 客户端 、服务端进行数据交换时，协议控制的数据包
-头部较⼩ 。在不包含头部的情况下， 服务端到客户端的包头只有 2~10 字节 ( 取决于数据
-包长度)， 客户端到服务端的的话， 需要加上额外的4字节的掩码 。而 HTTP 协议每次通信
-都需要携带完整的头部；
-⽀持扩展 。ws协议定义了扩展，用户可以扩展协议， 或者实现自定义的⼦协议 。 ( 比如⽀
-持自定义压缩算法等)
-⽆跨域问题。
+    ⽀持双向通信， 实时性更强；
+    可以发送⽂本，也可以⼆进制⽂件；
+    协议标识符是 ws ，加密后是 wss ；
+    较少的控制开销 。连接创建后， ws 客户端 、服务端进行数据交换时，协议控制的数据包
+    头部较⼩ 。在不包含头部的情况下， 服务端到客户端的包头只有 2~10 字节 ( 取决于数据
+    包长度)， 客户端到服务端的的话， 需要加上额外的4字节的掩码 。而 HTTP 协议每次通信
+    都需要携带完整的头部；
+    ⽀持扩展 。ws协议定义了扩展，用户可以扩展协议， 或者实现自定义的⼦协议 。 ( 比如⽀
+    持自定义压缩算法等)
+    ⽆跨域问题。
 
-实现比较简单， 服务端库如 socket.io 、 ws ， 可以很好的帮助我们⼊门。
-而客户端也只需要参照 api 实现即可
+    实现比较简单， 服务端库如 socket.io 、 ws ， 可以很好的帮助我们⼊门。
+    而客户端也只需要参照 api 实现即可
 
-83 尽可能多的说出你对 Electron 的理解
+83. 尽可能多的说出你对 Electron 的理解
 
-最最重要的⼀点， electron 实际上是⼀个套了 Chrome 的 nodeJS 程序
+    最最重要的⼀点， electron 实际上是⼀个套了 Chrome 的 nodeJS 程序
 
-所以应该是从两个方面说开来
+    所以应该是从两个方面说开来
 
-Chrome ( ⽆各种兼容性问题)；
+    Chrome ( ⽆各种兼容性问题)；
 
 
-NodeJS ( NodeJS 能做的它也能做)
+    NodeJS ( NodeJS 能做的它也能做)
 
-84 深浅拷贝
+84. 深浅拷贝
 
-浅拷贝
+    浅拷贝
+    Object.assign
+    或者展开运算符
 
-Object.assign
+    深拷贝
 
-或者展开运算符
+    可以通过 JSON.parse(JSON.stringify(object)) 来解决
 
-深拷贝
+    ```js
+    let a = {
+    age: 1,
+    jobs: {
+        first: 'FE'
+    }
 
-可以通过 JSON.parse(JSON.stringify(object)) 来解决
+    }
+    let b = JSON.parse(JSON.stringify(a))
+    a.jobs.first = 'native'
+    console.log(b.jobs.first) // FE
+    ```
 
-let a = {
-age: 1,
-jobs: {
+    该方法也是有局限性的
 
-first: 'FE'
-}
+    会忽略 undefined
+    不能序列化函数
+    不能解决循环引用的对象
 
-}
-let b = JSON.parse(JSON.stringify(a))
-a.jobs.first = 'native'
-console.log(b.jobs.first) // FE
+85. 防抖/节流
 
-该方法也是有局限性的
+    防抖
+    在滚动事件中需要做个复杂计算或者实现⼀个按钮的防⼆次点击操作 。可以通过函数防抖动来实现
 
-会忽略 undefined
+    ```js
+    // 使用 underscore 的源码来解释防抖动
 
-不能序列化函数
-不能解决循环引用的对象
+    /**
 
-85 防抖/节流
-防抖
+    * underscore 防抖函数， 返回函数连续调用时， 空闲时间必须大于或等于 wait， func 才会执行
 
-在滚动事件中需要做个复杂计算或者实现⼀个按钮的防⼆次点击操作 。可以通
-过函数防抖动来实现
+    *
+    * @param {function} func 回调函数
+    * @param {number} wait 表示时间窗口的间隔
+    * @param {boolean} immediate 设置为ture时，是否立即调用函数
+    * @return {function} 返回客户调用函数
+    */
 
-// 使用 underscore 的源码来解释防抖动
+    _.debounce = function(func, wait, immediate) {
+    var timeout, args, context, timestamp, result;
 
-/**
+    var later = function() {
+    // 现在和上⼀次时间戳比较
+    var last = _.now() - timestamp;
 
-* underscore 防抖函数， 返回函数连续调用时， 空闲时间必须大于或等于 wait， func 才会执行
+    // 如果当前间隔时间少于设定时间且大于0就重新设置定时器
+    if (last < wait && last >= 0) {
+    timeout = setTimeout(later, wait - last);
 
-*
-* @param {function} func 回调函数
-* @param {number} wait 表示时间窗口的间隔
-* @param {boolean} immediate 设置为ture时，是否立即调用函数
-* @return {function} 返回客户调用函数
-*/
+    } else {
+    // 否则的话就是时间到了执行回调函数
+    timeout = null;
+    if ( !immediate) {
 
-_.debounce = function(func, wait, immediate) {
-var timeout, args, context, timestamp, result;
+    result = func.apply(context, args);
+    if ( !timeout) context = args = null;
 
-var later = function() {
-// 现在和上⼀次时间戳比较
-var last = _.now() - timestamp;
+    }
+    }
+    };
+
+    return function() {
+    context = this;
+    args = arguments;
+
+    // 获得时间戳
+    timestamp = _.now();
+
+    // 如果定时器不存在且立即执行函数
+    var callNow = immediate && !timeout;
+    // 如果定时器不存在就创建⼀个
+    if ( !timeout) timeout = setTimeout(later, wait);
+    if (callNow) {
+    // 如果需要立即执行函数的话 通过 apply 执行
+    result = func.apply(context, args);
+    context = args = null;
+
+    }
+
+    return result;
+    };
+    };
+    ```
+
+    整体函数实现
+
+    对于按钮防点击来说的实现
+
+    开始⼀个定时器， 只要我定时器还在，不管你怎么点击都不会执行回调函数 。⼀旦定时器
+    结束并设置为 null，就可以再次点击了
+    对于延时执行函数来说的实现：每次调用防抖动函数都会判断本次调用和之前的时间间
+
+    隔， 如果小于需要的时间间隔，就会重新创建⼀个定时器， 并且定时器的延时为设定时间
+    减去之前的时间间隔 。⼀旦时间到了，就会执行相应的回调函数
+
+    节流
+
+    防抖动和节流本质是不⼀样的 。防抖动是将多次执行变为最后⼀次执行， 节流
+    是将多次执行变成每隔⼀段时间执行
+    ```js
+    /**
+    * underscore 节流函数， 返回函数连续调用时， func 执行频率限定为 次 / wait
+    *
+    * @param {function} func 回调函数
+    * @param {number} wait 表示时间窗口的间隔
+    * @param {object} options 如果想忽略开始函数的的调用，传⼊{leading: fals
+    * 如果想忽略结尾函数的调用，传⼊{trailing: false
+    * 两者不能共存，否则函数不能执行
+    * @return {function} 返回客户调用函数
+    */
+
+    _.throttle = function(func, wait, options) {
+    var context, args, result;
+    var timeout = null;
 
-// 如果当前间隔时间少于设定时间且大于0就重新设置定时器
-if (last < wait && last >= 0) {
-timeout = setTimeout(later, wait - last);
+    // 之前的时间戳
+    var previous = 0;
 
-} else {
-// 否则的话就是时间到了执行回调函数
-timeout = null;
-if ( !immediate) {
+    // 如果 options 没传则设为空对象
+    if ( !options) options = {};
 
-result = func.apply(context, args);
-if ( !timeout) context = args = null;
+    // 定时器回调函数
+    var later = function() {
 
-}
-}
-
-};
+    // 如果设置了 leading，就将 previous 设为 0
+    // 用于下面函数的第⼀个 if 判断
+    previous = options.leading === false ? 0 : _.now();
 
-return function() {
-context = this;
-args = arguments;
-
-// 获得时间戳
-timestamp = _.now();
-
-// 如果定时器不存在且立即执行函数
-var callNow = immediate && !timeout;
-// 如果定时器不存在就创建⼀个
-if ( !timeout) timeout = setTimeout(later, wait);
-if (callNow) {
-// 如果需要立即执行函数的话 通过 apply 执行
-result = func.apply(context, args);
-context = args = null;
-
-}
-
-return result;
-};
-
-};
+    // 置空⼀是为了防止内存泄漏，⼆是为了下面的定时器判断
+    timeout = null;
+    result = func.apply(context, args);
+    if ( !timeout) context = args = null;
+
+    };
+    return function() {
+    // 获得当前时间戳
 
-整体函数实现
 
-对于按钮防点击来说的实现
+    var now = _.now();
 
-开始⼀个定时器， 只要我定时器还在，不管你怎么点击都不会执行回调函数 。⼀旦定时器
-结束并设置为 null，就可以再次点击了
-对于延时执行函数来说的实现：每次调用防抖动函数都会判断本次调用和之前的时间间
+    // 首次进⼊前者肯定为 true
+    // 如果需要第⼀次不执⾏函数
+    // 就将上次时间戳设为当前的
+    // 这样在接下来计算 remaining 的值时会大于0
+    if ( !previous && options.leading === false) previous = now;
+    // 计算剩余时间
+    var remaining = wait - (now - previous);
+    context = this;
+    args = arguments;
 
-隔， 如果小于需要的时间间隔，就会重新创建⼀个定时器， 并且定时器的延时为设定时间
-减去之前的时间间隔 。⼀旦时间到了，就会执行相应的回调函数
+    // 如果当前调用已经大于上次调用时间 + wait
+    // 或者用户手动调了时间
+    // 如果设置了 trailing， 只会进⼊这个条件
+    // 如果没有设置 leading，那么第⼀次会进⼊这个条件
+    // 还有⼀点，你可能会觉得开启了定时器那么应该不会进⼊这个 if 条件了
+    // 其实还是会进⼊的， 因为定时器的延时
+    // 并不是准确的时间，很可能你设置了2秒
+    // 但是他需要2.2秒才触发， 这时候就会进⼊这个条件
+    if (remaining <= 0 || remaining > wait) {
 
-节流
+    // 如果存在定时器就清理掉否则会调用⼆次回调
+    if (timeout) {
+    clearTimeout(timeout);
+    timeout = null;
 
-防抖动和节流本质是不⼀样的 。防抖动是将多次执行变为最后⼀次执行， 节流
-是将多次执行变成每隔⼀段时间执行
+    }
+    previous = now;
+    result = func.apply(context, args);
+    if ( !timeout) context = args = null;
 
-/**
-* underscore 节流函数， 返回函数连续调用时， func 执行频率限定为 次 / wait
-*
-* @param {function} func 回调函数
-* @param {number} wait 表示时间窗口的间隔
-* @param {object} options 如果想忽略开始函数的的调用，传⼊{leading: fals
-* 如果想忽略结尾函数的调用，传⼊{trailing: false
-* 两者不能共存，否则函数不能执行
-* @return {function} 返回客户调用函数
-*/
+    } else if ( !timeout && options.trailing !== false) {
 
-_.throttle = function(func, wait, options) {
-var context, args, result;
-var timeout = null;
+    // 判断是否设置了定时器和 trailing
+    // 没有的话就开启⼀个定时器
+    // 并且不能不能同时设置 leading 和 trailing
+    timeout = setTimeout(later, remaining);
 
-// 之前的时间戳
-var previous = 0;
+    }
+    return result;
 
-// 如果 options 没传则设为空对象
-if ( !options) options = {};
+    };
+    };
+    ```
 
-// 定时器回调函数
-var later = function() {
+86. 谈谈变量提升？
 
-// 如果设置了 leading，就将 previous 设为 0
-// 用于下面函数的第⼀个 if 判断
-previous = options.leading === false ? 0 : _.now();
+    当执⾏ JS 代码时，会生成执⾏环境， 只要代码不是写在函数中的，就是在全
+    局执⾏环境中， 函数中的代码会产生函数执⾏环境， 只此两种执⾏环境
 
-// 置空⼀是为了防止内存泄漏，⼆是为了下面的定时器判断
-timeout = null;
-result = func.apply(context, args);
-if ( !timeout) context = args = null;
+    接下来让我们看⼀个老生常谈的例子， var
 
-};
-return function() {
-// 获得当前时间戳
 
+    ```js 
+    b() // call b
+    console.log(a) // undefined
 
-var now = _.now();
+    var a = 'Hello world'
 
-// 首次进⼊前者肯定为 true
-// 如果需要第⼀次不执⾏函数
-// 就将上次时间戳设为当前的
-// 这样在接下来计算 remaining 的值时会大于0
-if ( !previous && options.leading === false) previous = now;
-// 计算剩余时间
-var remaining = wait - (now - previous);
-context = this;
-args = arguments;
+    function b() {
+        console.log( 'call b')
+    }
+    ```
 
-// 如果当前调用已经大于上次调用时间 + wait
-// 或者用户手动调了时间
-// 如果设置了 trailing， 只会进⼊这个条件
-// 如果没有设置 leading，那么第⼀次会进⼊这个条件
-// 还有⼀点，你可能会觉得开启了定时器那么应该不会进⼊这个 if 条件了
-// 其实还是会进⼊的， 因为定时器的延时
-// 并不是准确的时间，很可能你设置了2秒
-// 但是他需要2.2秒才触发， 这时候就会进⼊这个条件
-if (remaining <= 0 || remaining > wait) {
+    变量提升
 
-// 如果存在定时器就清理掉否则会调用⼆次回调
-if (timeout) {
-clearTimeout(timeout);
-timeout = null;
+    这是因为函数和变量提升的原因 。通常提升的解释是说将声明的代码移动到了顶部，
+    这其实没有什么错误，便于大家理解 。但是更准确的解释应该是：在生成执行环境
+    时，会有两个阶段 。第⼀个阶段是创建的阶段，JS 解释器会找出需要提升的变量和函
+    数， 并且给他们提前在内存中开辟好空间， 函数的话会将整个函数存⼊内存中， 变量
+    只声明并且赋值为 undefined ，所以在第⼆个阶段，也就是代码执行阶段， 我们可
+    以直接提前使用
 
-}
-previous = now;
-result = func.apply(context, args);
-if ( !timeout) context = args = null;
+    在提升的过程中，相同的函数会覆盖上⼀个函数， 并且函数优先于变量提升
 
-} else if ( !timeout && options.trailing !== false) {
+    ```js
+    b() // call b second
 
-// 判断是否设置了定时器和 trailing
-// 没有的话就开启⼀个定时器
-// 并且不能不能同时设置 leading 和 trailing
-timeout = setTimeout(later, remaining);
+    function b() {
+    console.log( 'call b fist')
 
-}
-return result;
+    }
+    function b() {
+    console.log( 'call b second')
+    }
+    var b = 'Hello world'
+    ```
 
-};
-};
+    var 会产生很多错误，所以在 ES6 中引⼊了 let 。 let 不能在
+    声明前使用，但是这并不是常说的 let 不会提升， let 提升了，在第⼀阶
+    段内存也已经为他开辟好了空间，但是因为这个声明的特性导致了并不能在声
+    明前使用
 
-86 谈谈变量提升？
+87. 什么是单线程，和异步的关系
 
-当执⾏ JS 代码时，会生成执⾏环境， 只要代码不是写在函数中的，就是在全
-局执⾏环境中， 函数中的代码会产生函数执⾏环境， 只此两种执⾏环境
+    单线程 - 只有⼀个线程， 只能做⼀件事
 
-接下来让我们看⼀个老生常谈的例子， var
+    原因 - 避免 DOM 渲染的冲突
+    浏览器需要渲染 DOM
 
+    JS 可以修改 DOM 结构
+    JS 执行的时候， 浏览器 DOM 渲染会暂停
 
-b() // call b
-console.log(a) // undefined
+    两段 JS 也不能同时执行 (都修改 DOM 就冲突了)
+    webworker 支持多线程，但是不能访问 DOM
 
-var a = 'Hello world'
+    解决方案 - 异步
 
-function b() {
-console.log( 'call b')
+88. 是否用过 jQuery 的 Deferred
 
-}
-
-变量提升
-
-这是因为函数和变量提升的原因 。通常提升的解释是说将声明的代码移动到了顶部，
-这其实没有什么错误，便于大家理解 。但是更准确的解释应该是：在生成执行环境
-时，会有两个阶段 。第⼀个阶段是创建的阶段，JS 解释器会找出需要提升的变量和函
-数， 并且给他们提前在内存中开辟好空间， 函数的话会将整个函数存⼊内存中， 变量
-只声明并且赋值为 undefined ，所以在第⼆个阶段，也就是代码执行阶段， 我们可
-以直接提前使用
-
-在提升的过程中，相同的函数会覆盖上⼀个函数， 并且函数优先于变量提升
-
-b() // call b second
-
-function b() {
-console.log( 'call b fist')
-
-}
-function b() {
-
-console.log( 'call b second')
-}
-var b = 'Hello world'
-
-复制代码 var 会产生很多错误，所以在 ES6 中引⼊了 let 。 let 不能在
-声明前使用，但是这并不是常说的 let 不会提升， let 提升了，在第⼀阶
-段内存也已经为他开辟好了空间，但是因为这个声明的特性导致了并不能在声
-明前使用
-
-87 什么是单线程，和异步的关系
-单线程 - 只有⼀个线程， 只能做⼀件事
-
-
-原因 - 避免 DOM 渲染的冲突
-浏览器需要渲染 DOM
-
-JS 可以修改 DOM 结构
-JS 执行的时候， 浏览器 DOM 渲染会暂停
-
-两段 JS 也不能同时执行 (都修改 DOM 就冲突了)
-webworker 支持多线程，但是不能访问 DOM
-
-解决方案 - 异步
-
-88 是否用过 jQuery 的 Deferred
-image.png image.png image.png image.png image.png image.png
-image.png image.png image.png image.png
-
-89 前端面试之hybrid
+89. 前端面试之hybrid
 
 <!-- http://blog.poetries.top/2018/10/20/ EncodeStudio-hybrid/ -->
 
-90 前端面试之组件化
+90. 前端面试之组件化
 
 <!-- http://blog.poetries.top/2018/10/20/ EncodeStudio-component/ -->
 
-91 前端面试之MVVM浅析
+91. 前端面试之MVVM浅析
 
 <!-- http://blog.poetries.top/2018/10/20/ EncodeStudio-mvvm/ -->
 <!--  -->
-92 实现效果，点击容器内的图标， 图标边框变成border 1px solid
+92. 实现效果，点击容器内的图标， 图标边框变成border 1px solid
 red ，点击空白处重置
 
-const box = document.getElementById( 'box');
-function isIcon(target) {
-
-return target.className.includes( 'icon');
-}
-
-box.onClick = function(e) {
-e.stopPropagation();
-
-const target = e.target;
-if (isIcon(target)) {
-target.style.border = '1px solid red';
-
-}
-}
-const doc = document;
-doc.onclick = function(e) {
-
-const children = box.children;
-for(let i; i < children.length; i++) {
-
-if (isIcon(children [i])) {
-children [i].style.border = 'none';
-
-}
-}
-
-}
-
-93. 请简单实现双向数据绑定 mvvm
     ```js
+    const box = document.getElementById( 'box');
+    function isIcon(target) {
+        return target.className.includes( 'icon');
+    }
 
+    box.onClick = function(e) {
+        e.stopPropagation();
+
+        const target = e.target;
+        if (isIcon(target)) {
+            target.style.border = '1px solid red';
+        }
+    }
+    const doc = document;
+    doc.onclick = function(e) {
+        const children = box.children;
+        for(let i; i < children.length; i++) {
+            if (isIcon(children [i])) {
+                children [i].style.border = 'none';
+            }
+        }
+    }
+    ```
+
+1.  请简单实现双向数据绑定 mvvm
+    ```html
     <input id=" input"/>
 
     const data = {};
     const input = document.getElementById( 'input');
     Object.defineProperty(data, 'text', {
-
-    set(value) {
-    input.value = value;
-    this.value = value;
-
-    }
+        set(value) {
+            input.value = value;
+            this.value = value;
+        }
     });
     input.onChange = function(e) {
-    data.text = e.target.value;
+        data.text = e.target.value;
+    }
+    ```
+2.  实现Storage，使得该对象为单例， 并对 localStorage 进行封装设置值setItem(key,value)和getItem(key)
+    ```js
+    var instance = null;
+    class Storage {
+        static getInstance() {
+        if ( !instance) {
+            instance = new Storage();
+        }
+        return instance;
+        }
+        setItem = (key, value) => localStorage.setItem(key, value),
+        getItem = key => localStorage.getItem(key)
 
     }
     ```
-94. 实现Storage，使得该对象为单例， 并对 localStorage 进行封装设置值setItem(key,value)和getItem(key)
 
-var instance = null;
-class Storage {
+3.  说说 event loop
 
-static getInstance() {
-if ( !instance) {
+    首先， js 是单线程的， 主要的任务是处理用户的交互， 而用户的交互无非就是响应 DOM 的增删改，使用事件队列的形式，⼀次事件循环只处理⼀个事件响应，使得脚本执行相对连续，所以有了事件队列，用来储存待执行的事件，那么事件队列的事件从哪里被 push 进来的呢。
+    那就是另外⼀个线程叫事件触发线程做的事情了，他的作用主要是在定时触发器线程 、异步 HTTP 请求线程
+    满足特定条件下的回调函数 push 到事件队列中， 等待 js 引擎空闲的时候去
+    执行， 当然js引擎执行过程中有优先级之分， 首先js引擎在⼀次事件循环中，
+    会先执行js线程的主任务，然后会去查找是否有微任务microtask ( promise) ， 如果有那就优先执行微任务， 如果没有，在去查找宏任务 macrotask ( setTimeout、setInterval) 进行执行
 
-instance = new Storage();
-}
-return instance;
-
-}
-setItem = (key, value) => localStorage.setItem(key, value),
-getItem = key => localStorage.getItem(key)
-
-}
-
-95 说说 event loop
-
-首先， js 是单线程的， 主要的任务是处理用户的交互， 而用户的交互无非就
-是响应 DOM 的增删改，使用事件队列的形式，⼀ 次事件循环只处理⼀个事件
-响应，使得脚本执行相对连续，所以有了事件队列，用来储存待执行的事件，
-那么事件队列的事件从哪里被 push 进来的呢 。那就是另外⼀个线程叫事件触
-发线程做的事情了，他的作用主要是在定时触发器线程 、异步 HTTP 请求线程
-满足特定条件下的回调函数 push 到事件队列中， 等待 js 引擎空闲的时候去
-执行， 当然js引擎执行过程中有优先级之分， 首先js引擎在⼀次事件循环中，
-会先执行js线程的主任务，然后会去查找是否有微任务
-microtask ( promise) ， 如果有那就优先执行微任务， 如果没有，在去查找
-
-宏任务 macrotask ( setTimeout、setInterval) 进行执行
-
-96 说说事件流
+4.  说说事件流
 事件流分为两种，捕获事件流和冒泡事件流
 
 捕获事件流从根节点开始执行，⼀ 直往子节点查找执行， 直到查找执行到目标节点
@@ -2021,18 +2003,17 @@ microtask ( promise) ， 如果有那就优先执行微任务， 如果没有，
 事件流分为三个阶段，⼀个是捕获节点，⼀个是处于目标节点阶段，⼀个是冒
 泡阶段
 
-97 为什么 canvas 的图片为什么过有跨域问题
+97. 为什么 canvas 的图片为什么过有跨域问题
 
-98 我现在有⼀个 canvas ， 上面随机布着⼀些黑块，请实现方法，计
-算canvas上有多少个黑块
+98. 我现在有⼀个 canvas ， 上面随机布着⼀些黑块，请实现方法，计算canvas上有多少个黑块
 
 https://www.jianshu.com/p/f54d265f7aa4
 
-99 请手写实现⼀个 promise
+99. 请手写实现⼀个 promise
 
 https://segmentfault.com/a/1190000013396601
 
-100 说说从输入URL到看到页面发生的全过程，越详细越好
+100. 说说从输入URL到看到页面发生的全过程，越详细越好
 首先浏览器主进程接管， 开了⼀个下载线程。
 然后进⾏HTTP请求 ( DNS查询 、IP寻址等等)， 中间会有三次捂手， 等待响应， 开始下载
 响应报文。
@@ -2131,7 +2112,6 @@ layout， 开始计算每⼀个节点的位置，然后进⾏绘制。
         ```
 
         优缺点：
-
             本身是针对 MVC 的编程,不符合现在前端 MVVM 的浪潮
             基于原生的 XHR 开发， XHR 本身的架构不清晰， 已经有了 fetch 的替代方案
             JQuery 整个项目太大， 单纯使用 ajax 却要引入整个 JQuery 非常的不合理 ( 采取个性化打包的方案⼜不能享受CDN服务)
