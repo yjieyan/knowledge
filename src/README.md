@@ -26,30 +26,17 @@ copyright: false
 footer: 使用 <a href="https://theme-hope.vuejs.press/zh/" target="_blank">VuePress Theme Hope</a> 主题 | MIT 协议
 ---
 
-## 🎯 技术栈与技能
+## 🎯 项目
 
 <div class="skills-grid">
 
 <div class="skill-category">
 
-### 前端技术栈
-- **框架**: Vue 、React 
-- **语言**: TypeScript、JavaScript ES6+
-- **样式**: CSS3、Sass、Tailwind CSS
-- **工具**: Webpack、Vite、ESLint
-- **状态管理**: Vuex、Pinia、Redux Toolkit
-
-</div>
-
-<div class="skill-category">
-
-### 后端技术栈
-- **运行时**: Node.js
-- **框架**: Express
-- **数据库**: MySQL、MongoDB
-- **API**: Axios 、 RESTful
-- **认证**: JWT、OAuth 2.0
-
+### [file-manager-demo](https://github.com/yjieyan/file-manager-demo)
+- **大文件分片上传**：100MB+ 文件自动分片上传，支持断点续传
+- **实时文件管理**：完整的增删改查、重命名、文件夹管理
+- **中文文件名支持**：完善的文件名编码处理，无乱码问题
+- **可视化上传进度**：实时显示上传状态和进度
 </div>
 
 <div class="skill-category">
