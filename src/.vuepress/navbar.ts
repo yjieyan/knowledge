@@ -2,10 +2,8 @@ import { navbar } from "vuepress-theme-hope";
 
 export default navbar([
   "/",
-
   {
-    text: "基础-进阶",
-    // icon: "lightbulb",
+    text: "基础",
     prefix: "/guide/浏览器&服务器/",
     children: [
       {
@@ -45,137 +43,126 @@ export default navbar([
         ]
       },
     ]
-    // children: ["浏览器/index.html","服务器/index.html",],
   },
   {
-    text: "源码分析",
-    prefix: "/guide/source-code/",
+    text: "框架",
+    prefix: "/framework/",
     children: [
       {
         text: "Vue",
+        link: "/framework/Vue/README.md",
         children: [
-          'Vue2源码解析.html','Vue2响应式原理.html','Vue生命周期.html','Vue3基础.html','Vue2VsVue3.html', 
-          'Vue3源码分析.html','vuex原理分析.html','vueRouter原理分析.html',
-           'VueCli原理分析.html','VueSSR原理分析.html','Vue3设计实现一个弹窗组件.html',
-           '实现一个简单的脚手架.html',
+          // 'Vue3新特性.html',
         ]
       },
       {
         text: "React",
-        children: ['React基础.html', 'React生命周期.html', 
-          // 'React组件通信.html',
-          // 'ReactFiber.html','React性能优化.html',
-          '学React的设计模式.html','VueVsReact.html',
-        ]
-      },
-      {
-        text: "Webpack",
+        link: "/framework/React/README.md",
         children: [
-          'Webpack基础.html','Webpack构建流程.html','Webpack插件&加载器机制',
-          'Webpack的tapable.html','Webpack的TreeShaking.html','Webpack和Rollup如何选择.html',
-          'Webpack5新特性.html'
         ]
       },
       {
-        text: "Vite",
+        text: "Nuxt",
         children: [
-          'Vite原理.html',
+
+        ]
+      }
+    ]
+  },
+  {
+    text: "工程化",
+    prefix: "/engineering/",
+    children: [
+      {
+        text: "构建工具",
+        children: [
+          '/engineering/engineering-tool/Webpack/README.md',
+          '/engineering/engineering-tool/Vite/README.md',
         ]
       },
       {
-        text: "Babel",
-        children: ['BabelAst.html', 'Babel自主编写一个Babel插件.html']
+        text: "编译工具",
+        children: [
+          '/engineering/Babel/README.md'
+        ]
       },
-    ],
+    ]
+  },
+  {
+    text: "跨端",
+    prefix: "/guide/front-end/",
+    children: [ ]
+  },
+  {
+    text: "移动端",
+    prefix: "/guide/mobile/",
+    children: [ 
+
+    ]
+  },
+  {
+    text: "服务端",
+    prefix: "/guide/server/",
+    children: [ ]
+  },
+  {
+    text: "可视化",
+    prefix: "/guide/visualization/",
+    children: [ ]
   },
   // {
   //   text: "源码分析",
-  //   // icon: "lightbulb",
   //   prefix: "/guide/source-code/",
-  //   children: [ "README.md"],
-  //   // children: [ "Vue2源码解析", "Vue3源码解析", "React源码解析", "运行时框架"],
+  //   children: [
+  //     // {
+  //     //   text: "Vue",
+  //     //   children: [
+  //     //     'Vue2源码解析.html','Vue2响应式原理.html','Vue生命周期.html','Vue3基础.html','Vue2VsVue3.html', 
+  //     //     'Vue3源码分析.html','vuex原理分析.html','vueRouter原理分析.html',
+  //     //      'VueCli原理分析.html','VueSSR原理分析.html','Vue3设计实现一个弹窗组件.html',
+  //     //      '实现一个简单的脚手架.html',
+  //     //   ]
+  //     // },
+  //     // {
+  //     //   text: "React",
+  //     //   children: ['React基础.html', 'React生命周期.html', 
+  //     //     '学React的设计模式.html','VueVsReact.html',
+  //     //   ]
+  //     // },
+  //     // {
+  //     //   text: "Webpack",
+  //     //   children: [
+  //     //     'Webpack基础.html','Webpack构建流程.html','Webpack插件&加载器机制',
+  //     //     'Webpack的tapable.html','Webpack的TreeShaking.html','Webpack和Rollup如何选择.html',
+  //     //     'Webpack5新特性.html'
+  //     //   ]
+  //     // },
+  //     // {
+  //     //   text: "Vite",
+  //     //   children: [
+  //     //     'Vite原理.html',
+  //     //   ]
+  //     // },
+  //     // {
+  //     //   text: "Babel",
+  //     //   children: ['BabelAst.html', 'Babel自主编写一个Babel插件.html']
+  //     // },
+  //   ],
   // },
   {
     text: "前端工程化与项目实践",
-    // icon: "lightbulb",
     prefix: "/guide/engineering/",
     children: [
-      {
-        text: "微前端",
-        children: ['微前端与模块联邦/微前端基础.html']
-      },
-      {
-        text: "模块化",
-        children: ['模块化与打包/ESModule&CommonJS&UMD 差异与互转.html']
-      },
-      {
-        text: "测试与质量",
-        children: ['测试与质量/单元测试（Jest&Vitest）.html']
-      },
-      // {
-      //   text: "CI&CD",
-      //   children: ['CI&CD/index.html']
-      // },
-      // {
-      //   text: "脚手架与Monorepo",
-      //   children: ['脚手架与Monorepo/index.html']
-      // },
-      // {
-      //   text: "性能监控与日志",
-      //   children: ['性能监控与日志/index.html']
-      // },
       {
         text: "项目设计",
         children: [
           '项目设计/实现扫码登录.html',
           '项目设计/单点登录.html',
           '项目设计/大文件断点续传.html',
-
         ]
       },
     ],
-    // children: ["微前端与模块联邦/index.html","模块化与打包/index.html","测试与质量/index.html","CI&CD/index.html","脚手架与Monorepo/index.html","性能监控与日志/index.html","项目实战/index.html",],
   },
-
-  // {
-  //   text: "跨端与移动端",
-  //   prefix: "/guide/跨端与移动端/",
-  //   children: [
-  //     {
-  //       text: "Flutter",
-  //       children: [
-  //         {
-  //           text: "Flutter语言",
-  //           link: "跨端/Flutter/Flutter.html"
-  //         }
-  //       ]
-  //     },
-      
-  //     {
-  //       text: "Uniapp",
-  //       children: [
-  //         // {
-  //         //   text: "Taro原理",
-  //         //   link: "跨端/Taro原理.html"
-  //         // }
-  //       ]
-  //     },
-      
-  //     // {
-  //     //   text: "Taro",
-  //     //   children: [
-  //     //     {
-  //     //       text: "Taro原理",
-  //     //       link: "跨端/Taro原理.html"
-  //     //     }
-  //     //   ]
-  //     // },
-  //     {
-  //       text: "移动端",
-  //       children: ['移动端/开发小程序的几种方式.html', '']
-  //     },
-  //   ],
-  // },
   {
     text: "面试经",
     // icon: "lightbulb",

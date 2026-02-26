@@ -5,21 +5,36 @@ heroImage: /logo.png
 heroText: 技术探索与成长之路
 tagline: 从前端到后端，探索全栈开发的无限可能
 actions:
-  - text: 开始阅读
-    link: /guide/浏览器&服务器/浏览器/用户从输入网址到网页显示发生了什么.md
+  - text: 在线书籍
+    link: https://github.com/yjieyan/online-books
     type: primary
-  - text: 我的简历
+  - text: 简历
     link: https://pan.quark.cn/s/2cdb9fd211c6
     type: secondary
 features:
-  - title: 原理深入
-    details: Webpack、Babel.js等构建工具原理深入
-    icon: 💻
-  - title: 项目实战
-    details: Js、Vue、React、现代CSS、构建工具等前端技术深度实践
-    icon: 🚀
-  - title: 性能优化
-    details: 前端性能优化、监控等项目优化
+  - title: 前端导航
+    link: https://feinterview.poetries.top/nav
+    details: 开发者导航
+    icon: 🌐
+  - title: 柒夜导航
+    link: https://nav.qinight.com/
+    details: 黑科技网站资源集
+    icon: 🌐
+  - title: 书栈网
+    link: https://www.bookstack.cn/
+    details: BookStack_程序员IT互联网开源编程书籍免费阅读，助您【码】力十足！
+    icon: 🌐
+  - title: 智能助手
+    link: https://ai-bot.cn/
+    details: AI工具集合，国内外AI工具集导航大全
+    icon: 🌐
+  - title: 工具集合
+    link: http://guozhivip.com/tool/
+    details: 在线工具平台，涵盖了便民查询、常用计算、图片、开发、设计、文字、站长等各个领域的优质工具
+    icon: 🌐
+  - title: 鸠摩搜书 
+    link: https://www.jiumodiary.com/
+    details: 文档搜索引擎
     icon: ⚙️
 
 copyright: false
