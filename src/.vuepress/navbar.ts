@@ -179,11 +179,11 @@ export default navbar([
     children: ["技术决策的思考","学习方法论","团队协作","个人成长路径"],
   },
 
-  {
-    text: "2026",
-    prefix: "/guide/2026/",
-    children: ["锻炼",],
-  },
+  // {
+  //   text: "2026",
+  //   prefix: "/guide/2026/",
+  //   children: ["锻炼",],
+  // },
   // {
   //   text: "技术管理",
   //   prefix: "/guide/",
